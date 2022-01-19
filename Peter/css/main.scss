@@ -1,0 +1,88 @@
+@import 'includes/constants';
+@import 'includes/standard';
+
+@mixin containerX($size) {
+    .gridcontainer{
+        width: $size;
+        height: $size;
+        gap: $size/19;
+    }
+}
+@include containerX($album-xlarge);
+
+@media screen and (max-width: $screen-large) {
+    body {
+        background-color: darksalmon;
+    }
+    @include containerX($album-large);
+}
+@media screen and (max-width: $screen-medium) {
+    body {
+        background-color: deepskyblue;
+    }
+    @include containerX($album-medium);
+}
+@media screen and (max-width: $screen-small) {
+    body {
+        background-color: lightgreen;
+    }
+    @include containerX($album-small);
+}
+
+
+
+.gridcontainer{
+    position: relative;
+    top: 150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(8, 1fr) / repeat(8, 1fr); 
+}
+.griditem{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 255, 13);
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+/* Picture Galerie dimensions and positiones */
+.giall {
+    background-size: cover;
+    grid-area: span 2 / span 2;
+    & p {
+        opacity: 0.1;
+        transition: opacity 800ms ease;
+    }
+    &:hover p{opacity: 1;}
+}
+
+.no1, .no5, .no6 {
+    grid-area: span 2 / span 4;
+}
+.no2 {
+    grid-area: span 4/ span 4;
+}
+
+
+/* linked Pictures */
+.no1 {
+    background-image: url(../images/25881-natur-hintergrundbider-1920x1080-fuer-android-40.jpg);
+}
+.no2 {
+    background-image: url(../images/25883-natur-hintergrundbider-1920x1200-mobile.jpg);
+}
+.no3 {
+    background-image: url(../images/25932-natur-hintergrundbider-1920x1200-picture.jpg);
+}
+.no4 {
+    background-image: url(../images/25896-full-size-natur-hintergrundbider-1920x1080.jpg);
+}
+.no5 {
+    background-image: url(../images/25927-tolle-natur-hintergrundbider-1920x1080-ipad-retina.jpg);
+}
+.no6 {
+    background-image: url(../images/25884-natur-hintergrundbider-1920x1200-fuer-meizu.jpg);
+}
